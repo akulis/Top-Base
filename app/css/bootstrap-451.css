@@ -3,15 +3,9 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  height: 100%;
 }
 body {
   margin: 0;
-  height: 100%; /* Added this to make sticky footer - $ak */
-}
-/* Added to fix Checkout Button Text resizing issues - need to add to custom.css eventually */
-.checkoutButtonText {
-  font-size: 2vmin !important;
 }
 article,
 aside,
@@ -3670,7 +3664,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   min-height: 60px;
   margin-bottom: 0;
-  /*border: 1px solid transparent;*/
+  border: 1px solid transparent;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -3979,11 +3973,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-right: 0;
   }
 }
-/* Navbar Color & Border Edit - $ak */
-/*.navbar-default {
-  background-color: #002A45;
-  border-color: #0069AA;
-}*/
+.navbar-default {
+  background-color: #50acdb;
+  border-color: #359fd5;
+}
 .navbar-default .navbar-brand {
   color: #ffffff;
 }
@@ -4399,8 +4392,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   vertical-align: baseline;
   white-space: nowrap;
   text-align: center;
-  /* Change Shopping Cart Indicator Background - $ak */
-  background-color: #000000;
+  background-color: #0c2a3a;
   border-radius: 10px;
 }
 .badge:empty {
@@ -5877,30 +5869,13 @@ ul:after,
 @-ms-viewport {
   width: device-width;
 }
-.visible-xxs,
 .visible-xs,
 .visible-sm,
 .visible-md,
 .visible-lg {
   display: none !important;
 }
-/* Updated the min-width to work with .visible-xxs - $ak */
-@media (max-width: 719px) {
-  .visible-xxs {
-    display: block !important;
-  }
-  table.visible-xxs {
-    display: table;
-  }
-  tr.visible-xxs {
-    display: table-row !important;
-  }
-  th.visible-xxs,
-  td.visible-xxs {
-    display: table-cell !important;
-  }
-}
-@media (min-width: 720px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .visible-xs {
     display: block !important;
   }
@@ -6387,7 +6362,7 @@ button::-moz-focus-inner {
 }
 .navbar .container .navbar-nav.pull-left li.fadeInLeft a i,
 .navbar .container-view .navbar-nav.pull-left li.fadeInLeft a i {
-  color: #ffffff;
+  color: #154964;
 }
 .navbar .container .navbar-nav.pull-left li a,
 .navbar .container-view .navbar-nav.pull-left li a {
@@ -6499,7 +6474,7 @@ button::-moz-focus-inner {
   padding: 15px;
   cursor: pointer;
 }
-.nav.visible-sm.visible-xs.visible-xxs {
+.nav.visible-sm.visible-xs {
   margin-bottom: 10px;
 }
 .navbar .nav a {
@@ -6530,10 +6505,8 @@ button::-moz-focus-inner {
 .pagination li a {
   float: none;
 }
-/*Edit Jumbrotron width - $ak */
 .jumbotron {
-  margin: 45px 0px -45px;
-  /* margin: 45px 5px -45px; */
+  margin: 45px 5px -45px;
   display: none;
 }
 .jumbotron.active {
@@ -8088,6 +8061,9 @@ select.ng-invalid:invalid:invalid:focus {
     overflow-y: scroll;
   }
 }
+.category_desc {
+  padding:15px;
+}
 .panel-product-list ul li.minimal .panel-body > div:first-of-type,
 .panel-product-list ul li.minimal .panel-category-list:not(.no-panels) > div:first-of-type,
 .panel-product-list ul li.minimal .panel-product-list:not(.no-panels) > div:first-of-type,
@@ -8753,7 +8729,7 @@ table[datepicker] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* makes the font 33% larger relative to the icon container - $ak */
+/* makes the font 33% larger relative to the icon container */
 .fa-lg {
   font-size: 1.33333333em;
   line-height: 0.75em;

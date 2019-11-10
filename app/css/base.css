@@ -24,6 +24,12 @@
   position: fixed !important;
 }
 
+/*Edit Jumbrotron width */
+.jumbotron {
+  margin: 45px 0px -45px;
+  display: none;
+}
+
 /* Jumbo Header Home Page*/
 .jumboHeader {
   text-align: center;
@@ -94,7 +100,26 @@
   padding: 10px;
   margin-top: -10px;
 }
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  /* Change Shopping Cart Indicator Background - $ak */
+  background-color: #000000;
+  border-radius: 10px;
+}
 
+/* Added to fix Checkout Button Text resizing issues - need to add to custom.css eventually */
+.checkoutButtonText {
+  font-size: 2vmin !important;
+}
 /* Category Message Settings */
 .categoryPanel {
   /* border-left: 5px solid #000000; */
@@ -294,9 +319,17 @@ body a {
   color: #E04F4F;
 }
 
-/* Change Shopping Cart Indicator Number Color */
-.badge {
-  color: #FFFFFF;
+/* Navbar Color & Border Edit */
+.navbar {
+  position: relative;
+  min-height: 60px;
+  margin-bottom: 0;
+  border: none;
+}
+
+.navbar-default {
+  background-color: none;
+  border-color: none;
 }
 
 .navbar-nav li.dropdown li>a {
@@ -306,11 +339,13 @@ body a {
 .navbar .container .navbar-nav.pull-right li a i:first-of-type {
   border-color: #FFFFFF;
 }
-
-.badge {
-  background-color: undefined;
+.navbar .container .navbar-nav.pull-left li.fadeInLeft a i,
+.navbar .container-view .navbar-nav.pull-left li.fadeInLeft a i {
+  color: #ffffff;
 }
-
+.nav.visible-sm.visible-xs.visible-xxs {
+  margin-bottom: 10px;
+}
 .container .navbar-nav li.active>a {
   color: undefined;
 }
@@ -462,4 +497,38 @@ body a {
 
 .panel-product-list .well {
   border-color: #F7F7F7;
+}
+.visible-xxs {
+  display: none !important;
+}
+/* Updated the min-width to work with .visible-xxs - $ak */
+@media (max-width: 719px) {
+  .visible-xxs {
+    display: block !important;
+  }
+  table.visible-xxs {
+    display: table;
+  }
+  tr.visible-xxs {
+    display: table-row !important;
+  }
+  th.visible-xxs,
+  td.visible-xxs {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 720px) and (max-width: 767px) {
+  .visible-xs {
+    display: block !important;
+  }
+  table.visible-xs {
+    display: table;
+  }
+  tr.visible-xs {
+    display: table-row !important;
+  }
+  th.visible-xs,
+  td.visible-xs {
+    display: table-cell !important;
+  }
 }

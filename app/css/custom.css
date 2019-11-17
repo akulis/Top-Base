@@ -1,22 +1,23 @@
 /* Login Logo */
 .loginLogo {
-  max-width: 100%;
-  max-height: 60px;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 250px;
+  max-height: 100%;
+  margin: 0px auto 25px auto;
   padding-top: 15px;
 }
 
 /* Jumbo Header Text */
 .jumboHeaderText {
-  /* width: 600px;
-  margin: 0 auto; */
   color: #ffffff;
+  /* Change banner color */
+  /*position: relative;
+    top: 50%;
+    transform: translateY(-50%);*/
 }
 
 /* Jumbotron settings */
 .jumbotron {
-  background-color: #FFFFFF;
+  background-color: transparent;
   /* set to zero to stretch banner to edge */
   padding: 0px;
 }
@@ -24,13 +25,13 @@
 /* Navbar Logo */
 .navLogo {
   max-width: 100%;
-  max-height: 40px;
+  max-height: 52px;
 }
 
 /* Banner Logo */
 .bannerLogo {
   max-width: 100%;
-  max-height: 250px;
+  /* max-height: 400px; */
 }
 
 /* Footer Logo */
@@ -69,50 +70,50 @@
 /* Theme CSS Edits */
 /* Navbar Color - Update This */
 .navbar-default {
-  background-color: #C3002F;
+  background-color: #000000;
 }
 
 /* Highlight Colors - Update These */
 .container .navbar-nav li.active a:hover {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 .container .navbar-nav li.active a:focus {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 .navbar-default .navbar-nav .open>a {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 .navbar-default .navbar-nav .open>a:hover {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 .navbar-default .navbar-nav .open>a:focus {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 .navbar-nav li.dropdown li>a:hover {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 .navbar-nav li.dropdown li>a:focus {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 .navbar .container .navbar-nav li.active .fa-caret-down {
-  color: #000000;
+  color: #dd8b27;
 }
 
 .container .navbar-nav li.active>a {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 /* End match color here */
 /* Change Panel Heading Color */
 .panel-primary .panel-heading .panel-title {
-  background-color: #000000;
+  background-color: #dd8b27;
 }
 
 /* Change Panel Heading Font Color */
@@ -121,30 +122,16 @@
 }
 
 /* Navbar text when highlighted */
-.container .navbar-nav li.active a:hover,
-.container .navbar-nav li.active>a,
-.container .navbar-nav li.active a:focus,
-.navbar-default .navbar-nav .open>a:focus {
-  color: #ffffff;
-}
-
-/* Changes navbar font color when not in use */
-.container .navbar-nav li a {
+.container .navbar-nav li.active a:hover, .container .navbar-nav li.active>a, .container .navbar-nav li.active a:focus, .navbar-default .navbar-nav .open>a:focus {
   color: #ffffff;
 }
 
 /* Navbar Default Font Color */
-.navbar-default .navbar-nav .open>a:hover,
-.navbar-default .navbar-nav .open>a {
+.navbar-default .navbar-nav .open>a:hover, .navbar-default .navbar-nav .open>a {
   color: #ffffff;
 }
 
 /* Drop down font color */
-.navbar-nav li.dropdown li>a {
-  color: #000000;
-}
-
-/* Drop down hover font color */
 .navbar-nav li.dropdown li>a:hover {
   color: #ffffff;
 }

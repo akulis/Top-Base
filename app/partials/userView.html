@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="panel-footer">
-        <input class="btn btn-medium btn-primary" type="submit" ng-disabled="login_existing.$invalid || buttonClicked" id="451_btn_login_existing" value="{{'Logon' | r | xlat}}" />
+        <input class="btn btn-medium btn-primary" type="submit" ng-disabled="login_existing.$invalid" id="451_btn_login_existing" value="{{'Logon' | r | xlat}}" />
         <inlineerror ng-show="loginAsExistingError" title="{{loginAsExistingError}}" />
       </div>
     </div>
@@ -38,7 +38,7 @@
           <input name="username" required class="form-control" type="text" ng-model="loginasuser.Email" autocomplete="off" placeholder="{{'Email' | r | xlat}}" />
           <br />
           <div class="panel-footer">
-            <input class="btn btn-medium btn-primary" type="submit" ng-disabled="login_help.$invalid || buttonClicked" id="451_btn_login_existing" value="{{'Reset' | r | xlat}}" />
+            <input class="btn btn-medium btn-primary" type="submit" ng-disabled="login_help.$invalid" id="451_btn_login_existing" value="{{'Reset' | r | xlat}}" />
             <div class="view-inline-error" style="text-align: left" ng-show="resetPasswordError" ng-bind-html="resetPasswordError" />
           </div>
         </div>
@@ -70,7 +70,7 @@
             <inlineerror ng-show="resetbytoken.confirm_password.$error.match" title="{{'Password' | r}}s do not match!" /><br />
           </div>
           <div xclass="panel-footer">
-            <input class="btn btn-medium btn-primary" type="submit" ng-disabled="resetbytoken.$invalid || buttonClicked" value="{{'Reset' | r | xlat}}" />
+            <input class="btn btn-medium btn-primary" type="submit" ng-disabled="resetbytoken.$invalid" value="{{'Reset' | r | xlat}}" />
             <div class="view-inline-error" style="text-align: left" ng-show="resetPasswordError" ng-bind-html="resetPasswordError" />
           </div>
         </div>
@@ -79,17 +79,18 @@
   </div>
   <form ng-show="user.Permissions.contains('ViewSelfAdmin')" name="user_form" ng-submit="save()">
     <!-- Adds text before "Create Account" -->
-    <!-- <div class="panel panel-default" id="user_form">
+    <div class="panel panel-default" id="user_form">
       <div class="panel-heading">
         <h3 class="panel-title">{{('Please' | r) + ' ' + ('Read' | r) | xlat}}</h3>
       </div>
       <div class="panel-body">
         <div class="col-md-8 col-md-offset-2">
-          <p><strong>Please note that this shopping system validates usernames across all stores (not just ) so when creating a new account, you may receive a message that the username you selected already exists and to choose another.</strong></p>
+          <p><strong>Please note that this shopping system validates usernames across all stores (not just Nelson Jameson) so when creating a new account, you may receive a message that the username you selected already exists and to choose another.
+              It is best if you use your company email address as your username so it is unique.</strong></p>
           <p><strong>Returning Users, if you have forgotten your User ID or Password, use the Forgot User ID/Forgot Password link to re-set. If you have any questions, please contact Customer Service at 608-826-6990.</strong></p>
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="panel panel-default" id="user_form">
       <div class="panel-heading">
         <h3 class="panel-title">{{(user.Type == 'TempCustomer' ? 'Create' : 'My') + ' ' + ('Account' | r) | xlat}}</h3>
@@ -176,7 +177,7 @@
               <p class="alert alert-success" ng-show="actionMessage" ng-bind-html="actionMessage | r | xlat"></p>
             </div>
             <div class="col-md-3">
-              <input class="btn btn-primary pull-right" type="submit" ng-disabled="user_form.$invalid || buttonClicked" id="451_btn_user" value="{{(user.Type == 'TempCustomer' ? 'Create Account' : 'Save') | xlat}}" />
+              <input class="btn btn-primary pull-right" type="submit" ng-disabled="user_form.$invalid" id="451_btn_user" value="{{(user.Type == 'TempCustomer' ? 'Create Account' : 'Save') | xlat}}" />
             </div>
           </div>
         </div>

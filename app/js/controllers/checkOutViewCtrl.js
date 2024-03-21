@@ -156,12 +156,5 @@ four51.app.controller('CheckOutViewCtrl', [
     $scope.cancelEdit = function() {
       $location.path('order');
     };
-    $scope.items = [
-      {
-        name: 'Ground'
-      }, {
-        name: 'Rush'
       }
-    ]
-  }
 ]);

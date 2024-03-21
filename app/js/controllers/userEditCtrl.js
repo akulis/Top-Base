@@ -33,13 +33,13 @@ four51.app.controller('UserEditCtrl', [
         }, function(err) {
           $scope.resetPasswordError = $sce.trustAsHtml(err.Message);
           $scope.emailResetLoadingIndicator = false;
-          $scope.buttonClicked = false;
-        });
+$scope.buttonClicked = false;
+                  });
 
       }
       $scope.resetWithToken = function() {
-        $scope.buttonClicked = true;
-        $scope.emailResetLoadingIndicator = true;
+$scope.buttonClicked = true;
+                $scope.emailResetLoadingIndicator = true;
         if ($scope.currentOrder) {
           $scope.loginasuser.CurrentOrderID = $scope.currentOrder.ID;
         }
@@ -59,14 +59,14 @@ four51.app.controller('UserEditCtrl', [
             $location.path('catalog');
           }
         }, function(err) {
-          $scope.buttonClicked = false;
-          $scope.emailResetLoadingIndicator = false;
+$scope.buttonClicked = false;
+                    $scope.emailResetLoadingIndicator = false;
           $scope.resetPasswordError = $sce.trustAsHtml(err.Message);
         });
       }
       $scope.save = function() {
-        $scope.buttonClicked = true;
-        $scope.actionMessage = null;
+$scope.buttonClicked = true;
+                $scope.actionMessage = null;
         $scope.securityWarning = false;
         $scope.user.Username = $scope.user.TempUsername;
         $scope.displayLoadingIndicator = true;
@@ -97,25 +97,25 @@ four51.app.controller('UserEditCtrl', [
           } else {
             $scope.securityWarning = false;
             $scope.displayLoadingIndicator = false;
-            $scope.buttonClicked = false;
-            $scope.actionMessage = 'Your changes have been saved';
+$scope.buttonClicked = false;
+                        $scope.actionMessage = 'Your changes have been saved';
             $scope.user.TempUsername = u.Username;
             if (_AnonRouter && !$scope.existingUser) 
               _AnonRouter.route();
             }
           }, function(ex) {
           $scope.displayLoadingIndicator = false;
-          $scope.buttonClicked = false;
-          if (ex.Code.is('PasswordSecurity')) 
+$scope.buttonClicked = false;
+                    if (ex.Code.is('PasswordSecurity')) 
             $scope.securityWarning = true;
           else {
-            user.Password = null;
+user.Password = null;
             user.ConfirmPassword = null;
             if (ex.Message.indexOf("PasswordAlreadyUsed") != -1) {
               ex.Message = "Username already exists. Please choose another.";
               $scope.actionMessage = $sce.trustAsHtml(ex.Message);
             } else {
-              $scope.actionMessage = $sce.trustAsHtml(ex.Message);
+                          $scope.actionMessage = $sce.trustAsHtml(ex.Message);
             }
           }
         });

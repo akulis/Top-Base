@@ -1,18 +1,13 @@
-four51.app.directive('ordersummary', [
-  'Order',
-  'Coupon',
-  function(Order, Coupon) {
+four51.app.directive('ordersummary', ['Order', 'Coupon', function(Order, Coupon) {
     var obj = {
       restrict: 'AE',
       templateUrl: 'partials/controls/orderSummary.html',
-      controller: [
-        '$scope',
-        function($scope) {
+      controller: ['$scope', function($scope) {
           var save = function(callback) {
-            Order.save($scope.currentOrder, function(data) {
+            Order.save($scope.currentOrder,
+					function(data) {
               $scope.currentOrder = data;
-              if (callback) 
-                callback($scope.currentOrder);
+              if (callback) callback($scope.currentOrder);
               }
             );
           };
@@ -22,16 +17,19 @@ four51.app.directive('ordersummary', [
             var cache = angular.copy($scope.currentOrder);
             $scope.couponLoadingIndicator = true;
             $scope.couponError = null;
-            Coupon.apply($scope.currentOrder.CouponCode, function(coupon) {
+            Coupon.apply($scope.currentOrder.CouponCode,
+					function(coupon) {
               $scope.currentOrder.Coupon = coupon;
               save(function() {
                 $scope.couponLoadingIndicator = false;
                 $scope.currentOrder.CreditCard = cache.CreditCard;
               });
-            }, function(ex) {
+            },
+					function(ex) {
               $scope.couponError = ex.Message;
               $scope.couponLoadingIndicator = false;
-            });
+            }
+				);
           };
 
           $scope.removeCoupon = function() {
@@ -45,12 +43,10 @@ four51.app.directive('ordersummary', [
               });
             });
           };
-        }
-      ]
+        }]
     };
     return obj;
-  }
-]);
+  }]);
 
 four51.app.directive('orderconfirmationmessage', function() {
   var obj = {
@@ -59,6 +55,7 @@ four51.app.directive('orderconfirmationmessage', function() {
   };
   return obj;
 });
+
 
 four51.app.directive('orderacknowledgemessage', function() {
   var obj = {

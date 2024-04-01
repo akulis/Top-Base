@@ -1,6 +1,4 @@
-four51.app.directive('alertShow', [
-  '$animate',
-  function($animate) {
+four51.app.directive('alertShow', ['$animate', function($animate) {
     return {
       scope: {
         'alertShow': '='
@@ -16,5 +14,4 @@ four51.app.directive('alertShow', [
         });
       }
     }
-  }
-]);
+  }]);

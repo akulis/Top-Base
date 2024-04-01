@@ -1,9 +1,4 @@
-four51.app.directive('customfilefield', [
-  '$parse',
-  '$resource',
-  '$451',
-  'fileReader',
-  'Security',
+four51.app.directive('customfilefield', ['$parse', '$resource', '$451', 'fileReader', 'Security',
   function($parse, $resource, $451, fileReader, Security) {
     var obj = {
       scope: {
@@ -24,15 +19,15 @@ four51.app.directive('customfilefield', [
 
         var afterSelection = function(file) {
           scope.uploadFileIndicator = true;
-          $resource($451.api('uploadfile')).save({Data: file.result, Name: file_control.files[0].name, ID: scope.customfield.ID, SourceType: scope.customfield.SourceType, SourceID: scope.customfield.SourceID}).$promise.then(function(u) {
+          $resource($451.api('uploadfile')).save({ Data: file.result, Name: file_control.files[0].name, ID: scope.customfield.ID, SourceType: scope.customfield.SourceType, SourceID: scope.customfield.SourceID }).$promise.then(function(u) {
             u.Url += "&auth=" + Security.auth();
             scope.customfield.File = u;
             scope.customfield.Value = u.ID;
             scope.uploadFileIndicator = false;
           }).catch(function(ex) {
-            error_element.innerHTML = (!ex.data.Message)
-              ? "An error occurred. Please select a new file and try again."
-              : ex.data.Message;
+            error_element.innerHTML = (!ex.data.Message) ?
+						"An error occurred. Please select a new file and try again." :
+						ex.data.Message;
             scope.uploadFileIndicator = false;
           });
         }
@@ -43,7 +38,7 @@ four51.app.directive('customfilefield', [
           });
         }
 
-        var updateModel = function(event) {
+        var updateModel = function (event) {
           error_element.innerHTML = "";
           switch (event.target.name) {
             case "delete":
@@ -69,11 +64,11 @@ four51.app.directive('customfilefield', [
               }
               break;
             case "upload":
-              if (event.target.files[0] == null) 
-                return;
-              scope.$apply(function() {
-                fileReader.readAsDataUrl(event.target.files[0], scope).then(afterSelection);
-                file_input.assign(scope, event.target.files[0]);
+              if (event.target.files[0] == null) return;
+              scope.$apply(function () {
+                fileReader.readAsDataUrl(event.target.files[0], scope)
+								.then(afterSelection);
+                file_input.assign(scope,  event.target.files[0]);
               });
               scope.replace = replace_box.checked = false;
               scope.delete = delete_box.checked = false;
@@ -85,5 +80,4 @@ four51.app.directive('customfilefield', [
     };
 
     return obj;
-  }
-]);
+  }]);

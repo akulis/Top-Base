@@ -17,11 +17,7 @@ four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressLi
           }
         }
       });
-      $scope.shipaddress = {
-        Country: 'US',
-        IsShipping: true,
-        IsBilling: false
-      };
+      $scope.shipaddress = { Country: 'US', IsShipping: true, IsBilling: false };
       $scope.$on('event:AddressCancel', function() {
         $scope.shipaddressform = false;
       });
@@ -40,11 +36,7 @@ four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressLi
             $scope.shipaddresses.push($scope.currentOrder.BillAddress);
           }
         });
-        $scope.shipaddress = {
-          Country: 'US',
-          IsShipping: true,
-          IsBilling: false
-        };
+        $scope.shipaddress = { Country: 'US', IsShipping: true, IsBilling: false };
       });
 
       var saveChanges = function(callback, error) {
@@ -191,7 +183,8 @@ four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressLi
             Shipper.query(order, function(list) {
               $scope.shippers = list;
               $scope.shippingFetchIndicator = false;
-            });
+            }
+						);
           },
           function(ex) {
             $scope.currentOrder.ShipAddressID = null;
@@ -219,7 +212,8 @@ four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressLi
             $scope.shippingUpdatingIndicator = false;
             $scope.shippingFetchIndicator = false;
           });
-        } else { // at the lineitem level for multiple shipping
+        }
+				else { // at the lineitem level for multiple shipping
           angular.forEach($scope.shippers, function(s) {
             if (s.Name == li.ShipperName)
               li.Shipper = s;

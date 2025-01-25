@@ -20,8 +20,7 @@ four51.app.filter('kb', function() {
 
 four51.app.filter('r', ['$sce', 'WhiteLabel', function($sce, WhiteLabel) {
   return function(value) {
-    var result = value,
-      found = false;
+		var result = value, found = false;
     angular.forEach(WhiteLabel.replacements, function(c) {
       if (found) return;
       if (c.key == value) {
@@ -35,8 +34,7 @@ four51.app.filter('r', ['$sce', 'WhiteLabel', function($sce, WhiteLabel) {
 
 four51.app.filter('rc', ['$sce', 'WhiteLabel', function($sce, WhiteLabel) {
   return function(value) {
-    var result = value,
-      found = false;
+		var result = value, found = false;
     angular.forEach(WhiteLabel.replacements, function(c) {
       if (found) return;
       if (c.key.toLowerCase() == value.toLowerCase()) {
@@ -50,8 +48,7 @@ four51.app.filter('rc', ['$sce', 'WhiteLabel', function($sce, WhiteLabel) {
 
 four51.app.filter('rl', ['$sce', 'WhiteLabel', function($sce, WhiteLabel) {
   return function(value) {
-    var result = value,
-      found = false;
+		var result = value, found = false;
     angular.forEach(WhiteLabel.replacements, function(c) {
       if (found) return;
       if (c.key.toLowerCase() == value.toLowerCase()) {
@@ -82,7 +79,7 @@ four51.app.filter('paginate', function() {
   }
 });
 
-//For changing USPS shipping option in dropdown
+//For changing USPS shipping option in dropdown $ak
 four51.app.filter('USPSFilter', function() {
   debugger;
   return function(object) {

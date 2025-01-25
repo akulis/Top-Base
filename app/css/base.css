@@ -398,7 +398,7 @@ body a {
 }
 
 .dropdown-mega, .navbar-default {
-  border-color: ;
+  border-color: undefined;
 }
 
 .text-primary {

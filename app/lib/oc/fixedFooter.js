@@ -1,14 +1,16 @@
-angular.module("OrderCloud-FixedFooter", []);
+angular.module('OrderCloud-FixedFooter', []);
 
-angular.module("OrderCloud-FixedFooter").directive("fixedfooter", fixedfooter)
-// .directive('orderbuttons', orderbuttons)
-  .controller("FixedFooterCtrl", FixedFooterCtrl);
+angular
+  .module('OrderCloud-FixedFooter')
+  .directive('fixedfooter', fixedfooter)
+  // .directive('orderbuttons', orderbuttons)
+  .controller('FixedFooterCtrl', FixedFooterCtrl);
 
 function fixedfooter() {
   var directive = {
-    restrict: "E",
+    restrict: 'E',
     template: template,
-    controller: "FixedFooterCtrl"
+    controller: 'FixedFooterCtrl'
   };
   return directive;
 
@@ -111,40 +113,24 @@ function fixedfooter() {
 //     }
 // }
 
-FixedFooterCtrl.$inject = ["$scope", "$location"];
+FixedFooterCtrl.$inject = ['$scope', '$location'];
 
 function FixedFooterCtrl($scope, $location) {
   var d = new Date();
   $scope.year = d.getFullYear();
 
-  /* below functions from NavCtrl.js in case navigation is used in the footer */
+  // Check if the current path is active
   $scope.isActive = function(path) {
-    var cur_path = $location.path().replace("/", "");
-    var result = false;
-
-    if (path instanceof Array) {
-      angular.forEach(path, function(p) {
-        if (p == cur_path && !result) 
-          result = true;
-        }
-      );
-    } else {
-      if (cur_path == path) 
-        result = true;
-      }
-    return result;
+    var cur_path = $location.path().replace('/', '');
+    if (Array.isArray(path)) {
+      return path.includes(cur_path);
+    }
+    return cur_path === path;
   };
 
-  //extension of above isActive in path
+  // Check if the current path contains the given path
   $scope.isInPath = function(path) {
-    var cur_path = $location.path().replace("/", "");
-    var result = false;
-
-    if (cur_path.indexOf(path) > -1) {
-      result = true;
-    } else {
-      result = false;
-    }
-    return result;
+    var cur_path = $location.path().replace('/', '');
+    return cur_path.indexOf(path) > -1;
   };
 }

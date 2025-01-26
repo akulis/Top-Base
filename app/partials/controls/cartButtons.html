@@ -14,21 +14,21 @@
     }
   </style>
   <li ng-if="continue"> <!-- Added uppercase to the buttons $ak -->
-    <button type="button" class="btn btn-info text-uppercase" redirect="catalog">
-            <small class="hidden-xs">{{'Continue Shopping' | r | xlat}}</small>
-            <small class="visible-xs">{{'Shop' | r | xlat}}</small>
+    <button type="button" class="btn btn-info" redirect="catalog">
+            <small class="hidden-xs text-uppercase">{{'Continue Shopping' | r | xlat}}</small>
+            <small class="visible-xs text-uppercase">{{'Shop' | r | xlat}}</small>
     </button>
   </li>
   <li>
-    <button type="button" class="btn btn-danger text-uppercase" ng-click="currentOrder.Status == 'AwaitingApproval' ? cancelEdit() : cancelOrder()">
-            <small ng-if="currentOrder.Status != 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Order' | r) | xlat}}</small>
-            <small ng-if="currentOrder.Status == 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Edit' | r) | xlat}}</small>
+    <button type="button" class="btn btn-danger" ng-click="currentOrder.Status == 'AwaitingApproval' ? cancelEdit() : cancelOrder()">
+            <small class="text-uppercase" ng-if="currentOrder.Status != 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Order' | r) | xlat}}</small>
+            <small class="text-uppercase" ng-if="currentOrder.Status == 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Edit' | r) | xlat}}</small>
     </button>
   </li>
   <li>
-    <button type="submit" class="btn btn-primary text-uppercase" ng-click="saveChanges()">
+    <button type="submit" class="btn btn-primary" ng-click="saveChanges()">
             <loadingindicator  ng-show="displayLoadingIndicator" />
-            <small>{{('Save' | r) + ' ' + ('Order' | r) | xlat}}</small>
+            <small class="text-uppercase">{{('Save' | r) + ' ' + ('Order' | r) | xlat}}</small>
     </button>
   </li>
   <li>

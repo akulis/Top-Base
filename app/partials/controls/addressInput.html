@@ -1,5 +1,5 @@
 <div id="address_edit">
-  <!-- Comment out to remove Google Quick Address feature -->
+  <!-- Comment out to remove Google Quick Address feature $ak -->
   <!-- <div class="view-form-icon" ng-hide="address.IsCustEditable == false">
         <div>
             <label for="Autocomplete">{{'Quick Address' | r | xlat}}</label>
@@ -12,20 +12,17 @@
       <div class="col-sm-6 view-form-icon">
         <div>
           <label ng-class="{'required': address.IsCustEditable != false}">{{('Address' | r) + ' ' + ('Name' | r) | xlat}}</label>
-          <input name="addressname" class="form-control" type="text" ng-model="address.AddressName" placeholder="{{('Address' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" ng-required="address.IsCustEditable != false"
-            ng-disabled="address.IsCustEditable == false" />
+                    <input name="addressname" class="form-control" type="text" ng-model="address.AddressName" placeholder="{{('Address' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" ng-required="address.IsCustEditable != false" ng-disabled="address.IsCustEditable == false" />
           <i class="fa fa-edit"></i>
         </div>
         <div>
           <label ng-show="address.FirstName || address.IsBilling" ng-class="{required: address.IsBilling && address.IsCustEditable != false}">{{('First' | r) + ' ' + ('Name' | r) | xlat}}</label>
-          <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="{{('First' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" ng-required="address.IsBilling && address.IsCustEditable != false"
-            ng-disabled="address.IsCustEditable == false" />
+                    <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="{{('First' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" ng-required="address.IsBilling && address.IsCustEditable != false" ng-disabled="address.IsCustEditable == false" />
           <i class="fa fa-user"></i>
         </div>
         <div>
           <label ng-show="address.LastName || address.IsBilling" ng-class="{required: address.IsBilling && address.IsCustEditable != false}">{{('Last' | r) + ' ' + ('Name' | r) | xlat}}</label>
-          <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="{{('Last' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" ng-required="address.IsBilling && address.IsCustEditable != false"
-            ng-disabled="address.IsCustEditable == false" />
+                    <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="{{('Last' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" ng-required="address.IsBilling && address.IsCustEditable != false" ng-disabled="address.IsCustEditable == false" />
           <i class="fa fa-user"></i>
         </div>
         <div>
@@ -35,8 +32,7 @@
         </div>
         <div>
           <label ng-show="isPhoneRequired()" ng-class="{required: isPhoneRequired()}">{{'Phone' | r | xlat}}</label>
-          <input name="phone" class="form-control" type="text" ng-model="address.Phone" placeholder="{{'Phone' | r | xlat}}" autocomplete="off" ng-required="isPhoneRequired() && address.IsCustEditable != false"
-            ng-disabled="address.IsCustEditable == false" />
+                    <input name="phone" class="form-control" type="text" ng-model="address.Phone" placeholder="{{'Phone' | r | xlat}}" autocomplete="off" ng-required="isPhoneRequired() && address.IsCustEditable != false" ng-disabled="address.IsCustEditable == false" />
           <i class="fa fa-phone"></i>
         </div>
       </div>

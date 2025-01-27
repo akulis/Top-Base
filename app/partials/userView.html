@@ -7,7 +7,7 @@
       <accountnavigation />
     </div>
   </div>
-  <loadingindicator title="{{'Please wait while we save your changes' | r | xlat}}" ng-show="displayLoadingIndicator" />
+    <loadingindicator title="{{'Please wait while we save your changes' | r | xlat}}" ng-show="displayLoadingIndicator"/>
   <identifyusermessage ng-show="user.Type == 'TempCustomer'" />
   <form ng-show="user.Permissions.contains('ViewSelfAdmin')" name="login_existing" ng-submit="loginExisting()" ng-if="user.Type == 'TempCustomer'">
     <div class="panel panel-default" id="user_form">
@@ -37,7 +37,7 @@
         <div class="panel-body">
           <label>{{'Email' | r | xlat}}</label>
           <input name="username" required class="form-control" type="text" ng-model="loginasuser.Email" autocomplete="off" placeholder="{{'Email' | r | xlat}}" />
-          <br />
+                    <br/>
           <div class="panel-footer">
             <input class="btn btn-medium btn-primary" type="submit" ng-disabled="login_help.$invalid || buttonClicked" id="451_btn_login_existing" value="{{'Reset' | r | xlat}}" />
             <div class="view-inline-error" style="text-align: left" ng-show="resetPasswordError" ng-bind-html="resetPasswordError" />
@@ -46,14 +46,14 @@
       </div>
     </form>
 
-    <form name="resetbytoken" ng-submit="resetWithToken()">
+        <form name="resetbytoken" ng-submit="resetWithToken()" >
       <div class="panel panel-default" ng-show="enterResetToken">
         <loadingindicator ng-show="emailResetLoadingIndicator" title="{{'Please wait while we reset your password' | r | xlat}}" />
         <div class="panel-heading">
           <h3 class="panel-title">{{'Lost login information' | r | xlat}}</h3>
         </div>
         <div class="panel-body">
-          <p class="alert-warning">{{'An email was sent with your username and verification code.' | r | xlat}}</p>
+                    <p class="alert-warning">{{'If that email address exists in our system, we will send you an email to reset your password.' | r | xlat}}</p>
           <div class="row">
             <label>{{'Username' | r | xlat}}</label>
             <input required name="username" class="form-control" type="text" ng-model="loginasuser.UserName" autocomplete="off" placeholder="{{'Username' | r | xlat}}" />
@@ -68,7 +68,7 @@
           </div>
           <div class="row">
             <label>Confirm {{'Password' | r}}</label>
-            <input required class="form-control" name="confirm_password" type="password" ng-model="loginasuser.ConfirmPassword" placeholder="Confirm {{'Password' | r}}" ng-match="loginasuser.NewPassword" />
+                        <input required class="form-control" name="confirm_password" type="password" ng-model="loginasuser.ConfirmPassword"  placeholder="Confirm {{'Password' | r}}" ng-match="loginasuser.NewPassword" />
             <inlineerror ng-show="resetbytoken.confirm_password.$error.match" title="{{'Password' | r}}s do not match!" /><br />
           </div>
           <div xclass="panel-footer">
@@ -86,6 +86,7 @@
         <h3 class="panel-title">{{(user.Type == 'TempCustomer' ? 'Create' : 'My') + ' ' + ('Account' | r) | xlat}}</h3>
       </div>
       <div class="panel-body">
+        <!-- Added below message for customer $ak -->
         <div class="col-md-8 col-md-offset-2" ng-show="user.Type == 'TempCustomer'">
           <div>
             <h4 class="text-center">{{('PLEASE' | r) + ' ' + ('READ' | r) | xlat}}</h4>
@@ -132,8 +133,7 @@
           </div>
           <div>
             <label ng-show="user.ConfirmPassword">{{('Confirm' | r) + ' ' + ('Password' | r) | xlat}}</label>
-            <input name="confirm_password" ng-match="user.Password" ng-required="user.Type == 'TempCustomer' || user.Password" class="form-control" type="password" ng-model="user.ConfirmPassword"
-              placeholder="{{('Confirm' | r) + ' ' + ('Password' | r) | xlat}}" autocomplete="off" />
+                        <input name="confirm_password" ng-match="user.Password" ng-required="user.Type == 'TempCustomer' || user.Password" class="form-control" type="password" ng-model="user.ConfirmPassword" placeholder="{{('Confirm' | r) + ' ' + ('Password' | r) | xlat}}" autocomplete="off" />
             <i class="fa fa-lock"></i>
             <inlineerror ng-show="user_form.confirm_password.$error.match" title="{{('Password' | r) + 's do not match!' | xlat}}" />
           </div>
@@ -160,8 +160,8 @@
           </span>
         </div>
       </div>
-      <div class="panel-body">
-        <div ng-if="user.CustomFields" class="col-sm-6 view-form-icon">
+            <div class="panel-body" >
+                <div  ng-if="user.CustomFields" class="col-sm-6 view-form-icon">
           <div ng-repeat="field in user.CustomFields">
             <customfilefield customfield="field" ng-if="field.ControlType == 'File' && field.DisplayToUser"></customfilefield>
             <customtextfield customfield="field" ng-if="field.ControlType == 'Text' && field.DisplayToUser"></customtextfield>

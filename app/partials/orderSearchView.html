@@ -30,7 +30,7 @@
       <div class="panel-body">
         <ul>
           <li ng-repeat="criteria in OrderSearchCriteria | filter:{Type:'Replenishment'}" ng-show="criteria.Count">
-            <a ng-href="#" ng-click="OrderSearch($event,{{criteria}})">{{criteria.DisplayName | r | xlat}} <span class="badge">{{criteria.Count}}</span></a>
+                        <a ng-href="#" ng-click="OrderSearch($event,{{criteria}})">{{criteria.DisplayName | r | xlat}} <span class="badge" >{{criteria.Count}}</span></a>
           </li>
         </ul>
       </div>
@@ -68,21 +68,33 @@
             </div>
             <div class="form-group">
               <label ng-show="criteria.DateRangeFrom">{{('Start' | r) + ' ' + ('Date' | r) | xlat}}</label>
-              <div class="btn btn-default btn-block btn-date hidden-lg hidden-md" ng-click="$event.preventDefault();$event.stopPropagation();startopened = !startopened;" style="margin:0; height:40px; padding-top:8px;">
+                            <div class="btn btn-default btn-block btn-date hidden-lg hidden-md"
+                                 ng-click="$event.preventDefault();$event.stopPropagation();startopened = !startopened;"
+                                 style="margin:0; height:40px; padding-top:8px;">
                 {{criteria.DateRangeFrom ? '' : 'Tap'}}
                 <span class="text-info">{{criteria.DateRangeFrom | date:user.Culture.DateFormat.short}}</span>
               </div>
-              <input name="daterangefrom" placeholder="{{('Start' | r) + ' ' + ('Date' | r) | xlat}}" ng-model="criteria.DateRangeFrom" type="text" class="form-control" datepicker-popup="{{user.Culture.DateFormat.short}}" is-open="startopened" />
+                            <input name="daterangefrom" placeholder="{{('Start' | r) + ' ' + ('Date' | r) | xlat}}" ng-model="criteria.DateRangeFrom"
+                                   type="text"
+                                   class="form-control"
+                                   datepicker-popup="{{user.Culture.DateFormat.short}}"
+                                   is-open="startopened"/>
               <i class="fa fa-calendar"></i>
             </div>
             <div class="form-group">
               <label ng-show="criteria.DateRangeTo">{{('End' | r) + ' ' + ('Date' | r) | xlat}}</label>
-              <div class="btn btn-default btn-block btn-date hidden-lg hidden-md" ng-click="$event.preventDefault();$event.stopPropagation();endopened = !endopened;" style="margin:0; height:40px; padding-top:8px;">
+                            <div class="btn btn-default btn-block btn-date hidden-lg hidden-md"
+                                 ng-click="$event.preventDefault();$event.stopPropagation();endopened = !endopened;"
+                                 style="margin:0; height:40px; padding-top:8px;">
                 {{criteria.DateRangeTo ? '' : 'Tap'}}
                 <span class="text-info">{{criteria.DateRangeTo | date:user.Culture.DateFormat.short}}</span>
               </div>
-              <input name="daterangeto" placeholder="{{('End' | r) + ' ' + ('Date' | r) | xlat}}" ng-model="criteria.DateRangeTo" type="text" class="form-control" datepicker-popup="{{user.Culture.DateFormat.short}}" is-open="endopened"
-                min="criteria.DateRangeFrom" />
+                            <input name="daterangeto" placeholder="{{('End' | r) + ' ' + ('Date' | r) | xlat}}" ng-model="criteria.DateRangeTo"
+                                   type="text"
+                                   class="form-control"
+                                   datepicker-popup="{{user.Culture.DateFormat.short}}"
+                                   is-open="endopened"
+                                   min="criteria.DateRangeFrom"/>
               <i class="fa fa-calendar"></i>
             </div>
           </div>
@@ -130,7 +142,8 @@
     <div class="panel-table">
       <loadingindicator ng-show="pagedIndicator" />
       <div ng-show="settings.listCount > settings.pageSize">
-        <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount" items-per-page="settings.pageSize" direction-links="true"></pagination>
+                <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount"
+                            items-per-page="settings.pageSize" direction-links="true"></pagination>
       </div>
       <div class="row hidden-xs text-info">
         <div class="col-xs-12 col-sm-2">{{'ID' | r | xlat}}</div>
@@ -167,7 +180,8 @@
         </div>
       </div>
       <div ng-show="settings.listCount > settings.pageSize">
-        <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount" items-per-page="settings.pageSize" direction-links="true"></pagination>
+                <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount"
+                            items-per-page="settings.pageSize" direction-links="true"></pagination>
       </div>
     </div>
   </div>

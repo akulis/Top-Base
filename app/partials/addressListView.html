@@ -9,7 +9,7 @@
       <div class="view-form-icon">
         <form name="searchForm" ng-submit="search()">
           <div class="input-group">
-            <input type="text" ng-model="searchTerm" class="form-control" placeholder="{{('Search' | r) + ' ' + ('Addresses' | r) | xlat}}" />
+                            <input type="text" ng-model="searchTerm"  class="form-control" placeholder="{{('Search' | r) + ' ' + ('Addresses' | r) | xlat}}" />
             <i class="fa fa-search"></i>
             <div class="input-group-btn">
               <button type="submit" class="btn btn-default">{{'Search' | r | xlat}}</button>
@@ -51,8 +51,8 @@
       </div>
       <div class="panel-footer" ng-show="addresses.length > 0">
         <div ng-show="settings.listCount > settings.pageSize">
-          <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount" items-per-page="settings.pageSize" direction-links="true" previous-text="{{'Previous' | xlat}}" next-text="{{'Next' | xlat}}" first-text="{{'First' | xlat}}"
-            last-text="{{'Last' | xlat}}"></pagination>
+                    <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount"
+                                items-per-page="settings.pageSize" direction-links="true" previous-text="{{'Previous' | xlat}}" next-text="{{'Next' | xlat}}" first-text="{{'First' | xlat}}" last-text="{{'Last' | xlat}}"></pagination>
         </div>
         <button type="button" class="btn btn-danger" ng-click="deleteSelected($event)" ng-disabled="(addresses | filter:{Selected:true}).length == 0">{{('Delete' | r) + ' ' + ('Selected' | r) | xlat}}</button>
         <button ng-if="user.Permissions.contains('CreateShipToAddress') || user.Permissions.contains('CreateBillToAddress')" type="button" class="btn btn-primary pull-right" ng-click="newAddress($event)">{{('New' | r) + ' ' + ('Address' | r) | xlat}}</button>

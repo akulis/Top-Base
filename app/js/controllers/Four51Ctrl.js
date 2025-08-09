@@ -30,8 +30,8 @@ function ($scope, $route, $rootScope, $timeout, $document, $window, $location, $
 		if (Security.isAuthenticated()) {
 			User.get(function (user) {
 				$scope.user = user;
-                $scope.user.Culture.CurrencyPrefix = XLATService.getCurrentLanguage(user.CultureUI, user.Culture.Name)[1];
-                $scope.user.Culture.DateFormat = XLATService.getCurrentLanguage(user.CultureUI, user.Culture.Name)[2];
+				$scope.user.Culture.CurrencyPrefix = XLATService.getCurrentLanguage(user.CultureUI, user.Culture.Name)[1];
+				$scope.user.Culture.DateFormat = XLATService.getCurrentLanguage(user.CultureUI, user.Culture.Name)[2];
 
                 //SPENDING ACCOUNTS NAV $ak
                 SpendingAccount.query(function(data) {

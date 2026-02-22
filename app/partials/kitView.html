@@ -168,8 +168,8 @@
 							<i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>
 							{{addToOrderText | r | xlat}}
 							<span class="badge" ng-if="!(user.Permissions.contains('HidePricing')) && (LineItem.LineTotal || variantLineItemsOrderTotal) > 0">
-								{{(LineItem.LineTotal || variantLineItemsOrderTotal) | culturecurrency}}
-							</span>
+                                {{(LineItem.LineTotal || variantLineItemsOrderTotal) | culturecurrency}}
+                            </span>
 						</button>
 						<div class="btn-group" role="group" ng-show="LineItem.IsKitChild">
 							<loadingindicator ng-show="addToOrderIndicator" />
@@ -188,10 +188,10 @@
 		<div class="view-error-message" ng-show="showAddToCartErrors && lineItemErrors.length > 0">
 			<ul class="alert-warning">
 				<li class="text-center">
-					<span class="badge">
-						<i class="fa fa-exclamation-circle fa-inverse"></i>
-						{{lineItemErrors.length}}
-					</span>
+                    <span class="badge">
+                        <i class="fa fa-exclamation-circle fa-inverse"></i>
+                        {{lineItemErrors.length}}
+                    </span>
 				</li>
 				<li class="text-center">
 					<ul ng-class="{'one': errorSection == 'open', 'two': errorSection == '' }">

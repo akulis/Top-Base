@@ -2,11 +2,11 @@ four51.app.config(['$routeProvider', '$locationProvider', function($routeProvide
     $locationProvider.html5Mode(true);
 
     var concatProductView = function(routeParams){
-      return 'productview.hcf?id='+ routeParams.productInteropID;
+        return 'productview.hcf?id='+ routeParams.productInteropID;
     }
 
     var concatSpecFormView = function(routeParams){
-      return 'specform.hcf?id=' + routeParams.productInteropID;
+        return 'specform.hcf?id=' + routeParams.productInteropID;
     }
 
     $routeProvider.
@@ -50,4 +50,4 @@ four51.app.config(['$routeProvider', '$locationProvider', function($routeProvide
         when('/report/:id', { templateUrl: 'partials/Reporting/reportView.html', controller: 'ReportCtrl' }).
         when('/contactus', { templateUrl: 'partials/Messages/contactus.html' }).
         otherwise({redirectTo: '/catalog'});
-  }]);
+}]);

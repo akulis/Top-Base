@@ -19,39 +19,39 @@ four51.app.factory('Security', ['$451', '$cookieStore', function ($451, $cookieS
     }
 
     return {
-      init: function (user, auth) {
-                logout = false;
-        var string = _cookieName + " = " + auth + ";path=/" + $451.apiName + "/;SameSite=None; Secure";
+        init: function (user, auth) {
+            logout = false;
+            var string = _cookieName + " = " + auth + ";path=/" + $451.apiName + "/;SameSite=None; Secure";
             document.cookie = string;
-      },
-      clear: function () {
-        $cookieStore.remove(_cookieName);
-      },
-      auth: function () {
-        var token = getCookie(_cookieName);
-        if(token.indexOf('Auth') !== -1){
+        },
+        clear: function () {
+            $cookieStore.remove(_cookieName);
+        },
+        auth: function () {
+            var token = getCookie(_cookieName);
+            if(token.indexOf('Auth') !== -1){
                 var parsedToken = JSON.parse(token);
             }
             if (parsedToken && parsedToken.Auth) {
-          var tokenString = angular.copy(parsedToken.Auth);
-          token = null;
-          token = tokenString;
-        }
-        return token ? token : null;
-      },
-      isAuthenticated: function () {
-        if (!logout) this.currentToken = getCookie(_cookieName);
-        return (!!this.currentToken);
-      },
-      logout: function () {
-        logout = true;
+                var tokenString = angular.copy(parsedToken.Auth);
+                token = null;
+                token = tokenString;
+            }
+            return token ? token : null;
+        },
+        isAuthenticated: function () {
+            if (!logout) this.currentToken = getCookie(_cookieName);
+            return (!!this.currentToken);
+        },
+        logout: function () {
+            logout = true;
 
-        function delete_cookie(name) {
-          document.cookie = name + '=; path=/' + $451.apiName + '; expires=Thu, 01 Jan 1970 00:00:00 UTC';
-          document.cookie = name + '=; path=/' + $451.apiName + '/; expires=Thu, 01 Jan 1970 00:00:00 UTC';
+            function delete_cookie(name) {
+                document.cookie = name + '=; path=/' + $451.apiName + '; expires=Thu, 01 Jan 1970 00:00:00 UTC';
+                document.cookie = name + '=; path=/' + $451.apiName + '/; expires=Thu, 01 Jan 1970 00:00:00 UTC';
+            }
+            delete_cookie(_cookieName);
+            delete this.currentToken;
         }
-        delete_cookie(_cookieName);
-        delete this.currentToken;
-      }
     }
-  }]);
+}]);

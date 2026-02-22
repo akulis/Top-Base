@@ -81,10 +81,8 @@ four51.app.filter('paginate', function() {
 
 //For changing USPS shipping option in dropdown $ak
 four51.app.filter('USPSFilter', function() {
-  debugger;
-  return function(object) {
-    if (object) {
-      return object.replace(/USPS Priority Mail 2-Day™/g, 'USPS Ground');
-    }
-  }
+  return function(text) {
+    if (!text) return text;
+    return text.replace(/USPS Priority Mail/g, 'USPS Ground');
+  };
 });
